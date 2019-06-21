@@ -1,0 +1,29 @@
+{% extends 'movies/base.html' %}
+{% block content %}
+<h1>EDIT</h1>
+<!--<form action="/boards/create/" method="POST">-->
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="title">TITLE</label>
+    <input type="text" name="title" id="title" value="{{ movie.title }}"><br>
+    <label for="title_en">TITLE_EN</label>
+    <input type="text" name="title_en" id="title_en" value="{{ movie.title_en }}"><br>
+    <label for="audience">AUDIENCE</label>
+    <input type="number" name="audience" id="audience" value="{{ movie.audience }}"><br>
+    <label for="open_date">OPEN_DATE</label>
+    <input type="date" name="open_date" id="open_date" value="{{movie.open_date}}"><br>
+    <label for="genre">GENRE</label>
+    <input type="text" name="genre" id="genre" value="{{movie.genre}}"><br>
+    <label for="watch_grade">WATCH_GRADE</label>
+    <input type="text" name="watch_grade" id="watch_grade" value="{{movie.watch_grade}}"><br>
+    <label for="score">SCORE</label>
+    <input type="number" name="score" id="score" value="{{movie.score}}"><br>
+    <label for="poster_url">POSTER_URL</label>
+    <input type="text" name="poster_url" id="poster_url" value="{{movie.poster_url}}"><br>
+    <label for="description">DESCRIPTION</label>
+    <textarea name="description" id="description">{{movie.description}}</textarea>
+    <input type="submit" value="수정">
+</form>
+
+<a href="{% url 'movies:detail' movie.pk %}">back</a>
+{% endblock %}

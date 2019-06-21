@@ -1,0 +1,18 @@
+{% extends 'movies/base.html' %}
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="title">TITLE</label>
+        <input type="text" name="title" id="title" value="{{movie.title}}"><br>
+
+        <label for="audience">AUDIENCE</label>
+        <input type="text" name="audience" id="audience" value="{{movie.audience}}"><br>
+
+        <label for="poster_url">POSTER_URL</label>
+        <input type="text" name="poster_url" id="poster_url" value="{{movie.poster_url}}"><br>
+
+        <label for="description">DESCRIPTION</label>
+        <input type="text" name="description" id="description" value="{{movie.description}}"><br>
+    </form>
+<a href="{% url 'movies:detail' movie.pk %}">back</a>
+{% endblock %}
