@@ -1,0 +1,18 @@
+{% extends 'boards/base.html' %}
+{% load static %}
+{% block content %}
+<h1>NEW</h1>
+<!--<form action="/boards/create/" method="POST">-->
+<img src="{% static 'sample2.jpg' %}" alt="sample_img">
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="title">TITLE</label>
+    <input type="text" name="title" id="title"><br>
+    <label for="content">CONTENT</label>
+    <textarea name="content" id="content"></textarea><br>
+    <input type="file" name="image" accept="image/*"><br>
+    <input type="submit" value="작성">
+</form>
+<!--<a href="/boards/">back</a>-->
+<a href="{% url 'boards:index' %}">back</a>
+{% endblock %}
